@@ -1,8 +1,31 @@
-# Sistem Perancangan Tahunan Kurikulum Sekolah (SPTK)
+# PANITIA PERNIAGAAN
 
-Platform digital untuk guru, ketua panitia dan pentadbir sekolah menguruskan perancangan kurikulum tahunan, dokumentasi mesyuarat, takwim akademik, pembangunan profesionalisme, sumber dan analisis peperiksaan, serta jadual kelas tambahan.
+Portal pembelajaran digital untuk guru dan murid Perniagaan Tingkatan 4 dan Tingkatan 5 mengikut sukatan KSSM — nota, kuiz online/offline, soalan latih tubi, percubaan negeri, SPM, dashboard murid dan panel guru/admin.
 
-**Platform Digital Pengurusan dan Perancangan Kurikulum Sekolah**
+**Platform Pembelajaran Perniagaan KSSM**
+
+> Nota: repositori ini turut mengekalkan modul SPTK sedia ada di bawah laluan `(app)` untuk kegunaan sekolah. Portal Perniagaan menggunakan store LocalStorage berasingan (`panitia_perniagaan_db_v1`).
+
+## Portal PANITIA PERNIAGAAN
+
+Aplikasi turut mengandungi portal pembelajaran Perniagaan KSSM untuk Tingkatan 4 dan Tingkatan 5:
+
+- `/` — homepage portal dengan akses pantas, pengumuman dan statistik pembelajaran.
+- `/nota-t4` dan `/nota-t5` — nota digital mengikut bab KSSM, carian, bookmark dan muat turun.
+- `/kuiz` — kuiz online berbilang pilihan / betul-palsu dengan pemasa dan semakan jawapan.
+- `/kuiz-offline` — kertas soalan dan skema yang boleh dicetak atau dimuat turun.
+- `/latih-tubi` — bank soalan objektif, struktur dan esei.
+- `/percubaan-negeri` dan `/spm` — slot dokumen peperiksaan dengan penapis negeri/tahun/kertas.
+- `/dashboard-pelajar` — kemajuan murid, sejarah kuiz, bookmark dan muat turun.
+- `/panel-admin` — panel guru/admin untuk mengurus nota, bab, soalan, dokumen dan pengumuman.
+
+Data portal disimpan berasingan dalam `localStorage` di bawah kunci `panitia_perniagaan_db_v1`. Akaun demo:
+
+- Admin: `admin@panitia.my` / `admin123`
+- Guru: `guru@panitia.my` / `guru123`
+- Murid: `murid@panitia.my` / `murid123`
+
+Untuk produksi, gantikan log masuk demo dengan Supabase Auth/RLS dan storan fail sebenar untuk PDF.
 
 ## Ciri-ciri
 
@@ -34,7 +57,7 @@ npm install
 npm run dev
 ```
 
-Buka http://localhost:3000 — anda akan diubah ke halaman log masuk demo. Pilih akaun untuk peranan **Admin**, **Ketua Panitia**, atau **Guru**.
+Buka http://localhost:3000 — anda akan melihat homepage PANITIA PERNIAGAAN. Modul SPTK lama kekal di bawah laluan sedia ada dengan log masuk demo tersendiri (`sptk_session`).
 
 ## Skrip
 
@@ -63,13 +86,19 @@ Lihat `supabase/schema.sql` untuk skema lengkap (users, departments, meeting_inv
 
 ```
 app/
-  (app)/            # Halaman modul (layout dengan sidebar + topbar)
-  log-masuk/        # Log masuk demo
-components/         # UI kongsi (sidebar, carta, kalendar, jadual, modal)
+  page.tsx           # Homepage PANITIA PERNIAGAAN
+  (perniagaan)/      # Halaman portal Perniagaan (nota, kuiz, latih tubi, SPM, panel)
+  (app)/             # Modul SPTK sedia ada
+  log-masuk/         # Log masuk demo SPTK
+components/
+  perniagaan/        # Shell, widget dan browser nota portal
+  ui.tsx             # UI kongsi (sidebar, carta, kalendar, jadual, modal)
 lib/
-  types.ts          # Jenis entiti
-  seed.ts           # Data contoh Bahasa Melayu
-  store.tsx         # Store localStorage + sesi demo
-  utils.ts          # Pemformat tarikh BM, helpers
-supabase/schema.sql # Skema Postgres + RLS
+  perniagaan/        # Jenis, seed data dan store LocalStorage portal
+  types.ts           # Jenis entiti SPTK
+  seed.ts            # Data contoh Bahasa Melayu SPTK
+  store.tsx          # Store localStorage + sesi demo SPTK
+  utils.ts           # Pemformat tarikh BM, helpers
+public/              # Manifest PWA, ikon dan service worker
+supabase/schema.sql  # Skema Postgres + RLS (SPTK)
 ```

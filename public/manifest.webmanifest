@@ -1,0 +1,19 @@
+{
+  "name": "PANITIA PERNIAGAAN",
+  "short_name": "Panitia Perniagaan",
+  "description": "Portal pembelajaran Perniagaan Tingkatan 4 dan Tingkatan 5 KSSM.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7fc",
+  "theme_color": "#802390",
+  "lang": "ms",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

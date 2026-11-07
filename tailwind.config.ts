@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -70,7 +71,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["Poppins", "Inter", "var(--font-inter)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         card: "0 1px 3px rgba(128, 35, 144, 0.06), 0 4px 14px rgba(128, 35, 144, 0.05)",

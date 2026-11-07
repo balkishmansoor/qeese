@@ -1,8 +1,8 @@
 {
-  "name": "sistem-perancangan-tahunan-kurikulum",
+  "name": "panitia-perniagaan",
   "version": "1.0.0",
   "private": true,
-  "description": "Sistem Perancangan Tahunan Kurikulum Sekolah - Platform Digital Pengurusan dan Perancangan Kurikulum",
+  "description": "PANITIA PERNIAGAAN - Portal pembelajaran Perniagaan KSSM Tingkatan 4 dan 5",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
