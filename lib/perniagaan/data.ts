@@ -3,6 +3,7 @@ import {
   Chapter,
   EduData,
   ExamPaper,
+  NoteResource,
   PracticeQuestion,
   QuizQuestion,
 } from "./types";
